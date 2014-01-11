@@ -27,7 +27,8 @@ var app = {
             $("#frame").attr("src","http://sorob.com");
         }
         $(".right","#nav").on("click"){
-            $("#frame").attr("src","http://www.comic-rocket.com");
+            var ref = window.open('http://apache.org', '_blank', 'location=yes');
+            //$("#frame").attr("src","http://www.comic-rocket.com");
         }
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
