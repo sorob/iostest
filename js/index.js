@@ -1,10 +1,10 @@
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * distributed with that work for additional information
+ * regarding copyright ownership.  The ASF licenses that file
  * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
+ * "License"); you may not use that file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -30,7 +30,7 @@ var app = {
     },
     // deviceready Event Handler
     //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // The scope of 'that' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
@@ -42,22 +42,22 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-
+        var that=this;
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
         $(".left","#nav").on("click",function(e){
             e.preventDefault();
-            this.currentIndex++;
-            if (this.currentIndex>=this.urls.length)this.currentIndex=0;
-            $("#frame").attr("src",this.urls[this.currentIndex]);
+            that.currentIndex++;
+            if (that.currentIndex>=that.urls.length)that.currentIndex=0;
+            $("#frame").attr("src",that.urls[that.currentIndex]);
         });
         $(".right","#nav").on("click", function(e){
             e.preventDefault();
              e.preventDefault();
-            this.currentIndex++;
-            if (this.currentIndex>=this.urls.length)this.currentIndex=0;
+            that.currentIndex++;
+            if (that.currentIndex>=that.urls.length)that.currentIndex=0;
             
-            var ref = window.open(this.urls[this.currentIndex], '_blank', 'location=yes');
+            var ref = window.open(that.urls[that.currentIndex], '_blank', 'location=yes');
             //$("#frame").attr("src","http://www.comic-rocket.com");
         });
         
