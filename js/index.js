@@ -1,4 +1,21 @@
-
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 var app = {
     // Application Constructor
     initialize: function() {
@@ -19,20 +36,31 @@ var app = {
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
+    currentIndex:0,
+    urls:["http://sorob.com","http://comic-rocket.com","http://www.theblackgates.com/library/binary/page1.html","https://comic-rocket.com"],
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-        $(".left","#nav").on("click"){
-            $("#frame").attr("src","http://sorob.com");
-        }
-        $(".right","#nav").on("click"){
-            var ref = window.open('http://apache.org', '_blank', 'location=yes');
-            //$("#frame").attr("src","http://www.comic-rocket.com");
-        }
+
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
+        $(".left","#nav").on("click",function(e){
+            e.preventDefault();
+            this.currentIndex++;
+            if (this.currentIndex>=this.urls.length)this.currentIndex=0;
+            $("#frame").attr("src",this.urls[this.currentIndex]);
+        });
+        $(".right","#nav").on("click", function(e){
+            e.preventDefault();
+             e.preventDefault();
+            this.currentIndex++;
+            if (this.currentIndex>=this.urls.length)this.currentIndex=0;
+            
+            var ref = window.open(this.urls[this.currentIndex], '_blank', 'location=yes');
+            //$("#frame").attr("src","http://www.comic-rocket.com");
+        });
+        
         console.log('Received Event: ' + id);
     }
 };
