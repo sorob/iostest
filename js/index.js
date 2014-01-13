@@ -50,14 +50,13 @@ var app = {
             that.currentIndex++;
             if (that.currentIndex>=that.urls.length)that.currentIndex=0;
             $("#frame").attr("src",that.urls[that.currentIndex]);
+            $(".url","#nav").text(that.urls[that.currentIndex]);
         });
         $(".right","#nav").on("click", function(e){
             e.preventDefault();
              e.preventDefault();
-            that.currentIndex++;
-            if (that.currentIndex>=that.urls.length)that.currentIndex=0;
-            
-            var ref = window.open(that.urls[that.currentIndex], '_blank', 'location=yes');
+     
+            var ref = window.open(that.urls[that.currentIndex], '_blank',  'EnableViewPortScale=yes');
             //$("#frame").attr("src","http://www.comic-rocket.com");
         });
         
